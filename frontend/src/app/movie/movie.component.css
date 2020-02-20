@@ -1,0 +1,138 @@
+.holder{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    margin-top:50px;
+    color: black;
+}
+.search input{
+    height: 30px;
+    width: 300px;
+    border:1px solid black;
+    padding-left: 20px;
+}
+.search input:focus{
+    outline-width: 0;
+}
+.search button{
+    border: none;
+    background: black;
+    color: white;
+}
+.heading{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 5%;
+}
+.input-container{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+.movie-input{
+    height: 30px;
+    width: 300px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: black;
+    color: #75c74e;
+}
+.select{
+    margin: 50px;
+    padding: 30px;
+    height: auto;
+    width: 380px;
+    background-color: black;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    box-shadow: 13px 10px 5px 0px grey;
+}
+
+.title{
+    text-align: center;
+}
+
+.tags{
+
+    height: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: inline;
+    color: white;
+    background-color: black;
+    border: 2px solid #75c74e;
+    border-radius: 50px;
+    margin: 25px 0px 0px 5px;
+}
+.tags:hover{
+    color: rgb(240, 99, 165);
+    border: 2px solid rgb(240, 99, 165);
+}
+.rating{
+display: inline;
+color: #75c74e;
+}
+.rating-n{
+    display: inline;
+    color: yellow;
+}
+.duration{
+    display: inline-flex;
+    margin-left: 30px;
+    color: #75c74e;
+}
+.rate{
+    display: flex;
+    margin-bottom: 20px;
+}
+.time{
+    margin-left: 40%;
+}
+.top-rated{
+    color: white;
+}
+.whole{
+    display: inline-flex;
+    flex-direction: row;
+    width: calc(100% / 3);
+}
+.select1{
+    margin: 30px;
+    padding: 30px;
+    height: 400px;
+    width: 330px;
+    background-color: black;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    box-shadow: 11px 11px 7px -3px grey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.genre{
+    font-size: 40px;
+    font-weight: 900;
+    margin:50px;
+}
+.overview{
+
+    font-size: x-large;
+    font-weight: 600;
+    margin-top:30px;
+    line-height: 3;
+}
+.heading{
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}

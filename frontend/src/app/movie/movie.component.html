@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<div class="holder"> 
+    <div class="search">
+        <input placeholder="search for movies" (change)="handleSearch($event)"> 
+        <button>search</button>
+    </div>
+    <div *ngIf="movies">
+        <div class="whole"> 
+            <div class="top-rated">
+              <div class="select1">
+                <div class="title">
+                  <span class="heading">{{movies && movies.title}}</span>
+                </div>
+                <div class="desp">
+                  <div class="rate">
+                      <span class="rating">Rating:  </span>
+                      <span>&nbsp;</span>
+                      <span class="rating-n">{{movies && movies.vote_average}}/10</span>
+                      <span class="rating time">&nbsp; {{(movies.runtime/60).toFixed(2)}}hrs</span>
+                  </div>
+                  <span class="overview">Overview</span><br>
+                  <span>&emsp;{{movies && movies.overview}}</span><br>
+                  <button *ngFor='let genre of movies.genres' class="tags">
+                    {{genre.name}}
+                  </button>
+                </div>
+              </div>
+            </div>
+    </div>
+    </div>
+    <span class="genre" *ngIf="movies">Similar Movies</span>
+    <div *ngIf="movies">
+        
+        <div class="whole" *ngFor='let value of similar'>
+              <div class="top-rated">
+                <div class="select1">
+                  <div class="title">
+                    <span class="heading">{{value.title}}</span>
+                  </div>
+                  <div class="desp">
+                    <div class="rate">
+                      <span class="rating">Rating: </span>
+                      <span>&nbsp;</span>
+                      <span class="rating-n">{{value.vote_average}}/10</span>
+                    </div>
+                    <span class="overview">Overview</span><br>
+                    <span>{{value.overview}}</span>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <span class="genre">Top rated Movies</span>
+    <div>
+        <div class="whole" *ngFor='let value of top'> 
+                <div class="top-rated">
+                  
+                  <div class="select1">
+                    <div class="title">
+                      <span class="heading">{{value.title}}</span>
+                    </div>
+                    <div class="desp">
+                      <div class="rate">
+                          <span class="rating">Rating:  </span>
+                          <span>&nbsp;</span>
+                          <span class="rating-n">{{value.vote_average}}/10</span>
+                      </div>
+                      <span class="overview">Overview</span><br>
+                      <span>&emsp;{{value.overview}}</span>
+            
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<div class="happy">
+        <!-- <div *ngIf='sign'>{{alert(sign.data)}}</div> -->
+        <span class="title">Sign Up</span>
+        <input type="text" [value]="user.name" (input)="handleChange($event)" placeholder="Enter username" name="name" ng-required="true"/>
+        <input type="text" [value]="user.mail" (input)="handleChange($event)" placeholder="Enter email" name="mail" ng-required="true"/>
+        <input type="password" [value]="user.pass" (input)="handleChange($event)" placeholder="Enter password" name="pass" ng-required="true"/>
+        <button class="submit-btn" (click)="handleSignup()">Sign Up</button>
+</div>

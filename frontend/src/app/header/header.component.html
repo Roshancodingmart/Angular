@@ -1,0 +1,8 @@
+<div class="header">
+    <div class="welcome"><span *ngIf='signed'>Welcome {{user}}</span></div>
+    <div class="log">
+        <a routerLink="/signup"> <button class="submit-btn" *ngIf='!signed'>Sign up</button></a>
+        <a routerLink="/signin"><button class="submit-btn" *ngIf='!signed'>Sign in</button></a>
+        <button class="submit-btn" (click)="handleLogout()" *ngIf='signed'>Logout</button>
+    </div>
+</div>

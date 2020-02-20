@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<div class="happy">
+
+    <span class="title">Sign In</span>
+    <input type="text" [value]="user.mail" (input)="handleChange($event)" placeholder="Enter Email" name="mail" />
+    <input type="password" [value]="user.pass" (input)="handleChange($event)" placeholder="Enter Password"
+        name="pass" />
+    <button class="submit-btn" (click)="handleSignin()">Sign In</button>
+
+</div>
