@@ -34,7 +34,7 @@ const sendMail = (req, res) => {
           service: "gmail",
           auth: {
             user: "roshandd7@gmail.com",
-            pass: "9894255827"
+            pass: "****"
           }
         });
         var otp = otpGenerator.generate(6, {
