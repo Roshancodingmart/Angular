@@ -8,7 +8,7 @@ const userTable=(req,res)=>{
       public.new
    ORDER BY
       name
-   LIMIT 5 OFFSET $1`,[page],(error,resp)=>{
+   LIMIT $1 OFFSET 0`,[page],(error,resp)=>{
         conn.client.query(`SELECT * FROM public.new`,(err,respo)=>{
 
             res.send([{user:resp.rows,count:respo.rowCount}])

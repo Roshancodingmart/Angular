@@ -1,47 +1,9 @@
 <app-header></app-header>
-
-<div class="heading">
-    <span>User's List</span>
+<div class="table-caller">
+    <a routerLink="register" routerLinkActive='active'>
+        <button>Registered-User-List</button></a>
+    <a routerLink="user" routerLinkActive='active'>
+        <button>Accepted-User-List</button></a>
+        
 </div>
-<div class="admin">
-
-    <table>
-        <thead>
-            <tr>
-                <th class="name">Name</th>
-                <th class="mail">Email</th>
-                <th class="created">Created</th>
-                <th class="updated">Updated</th>
-                <th class="deleted">Deleted</th>
-            </tr>
-        </thead>
-        <tbody *ngIf='user_details'>
-            <tr *ngFor='let user of user_details'>
-                <th style="height: 30px;">{{user.name}}</th>
-                <th>{{user.email}}</th>
-                <th>{{user.added}}</th>
-                <th>{{user.updated}}</th>
-                <th>{{user.deleted}}</th>
-            </tr>
-        </tbody>
-    </table>
-    <div *ngIf="!user_details">Illegal Access</div>
-</div>
-
-
-
-<div class="page">
-    <button class="pg_no" (click)="toStart()">
-      &#8810;
-    </button>
-    <button class="pg_no" (click)="toBefore()">
-      &#8826;
-    </button>
-    <button *ngFor='let arr of array' class="pg_no" (click)="handleTable((arr-1)*5)">{{arr}}</button>
-    <button class="pg_no" (click)="toNext()">
-      &#8827;
-    </button>
-    <button class="pg_no" (click)="toEnd()">
-      &#8811;
-    </button>
-  </div>
+<router-outlet></router-outlet>

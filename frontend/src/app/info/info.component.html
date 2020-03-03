@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="loader" *ngIf="!movie"></div>
+<div class="info" *ngIf="movie">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="pic">
+        <img src={{image}} alt="picture">
+    </div>
+    <div class="details">
+        <span class="name" *ngIf='movie'>{{movie.title}}<span class="year">&nbsp;({{year}})</span></span>
+        <span class="line" *ngIf='movie'>&nbsp;{{movie.tagline}}</span>
+        <div class="get" *ngIf='movie'>
+            <span class="rating">Rating:&nbsp;{{movie.vote_average}}/10 &nbsp;</span>
+            <span class="time">Runtime:&nbsp;{{(movie.runtime/60).toFixed(2)}}hrs</span>
+            <span class="time">Language:&nbsp;{{movie.spoken_languages[0].name}}</span>
+        </div>
+        <div style="margin-bottom: 10px;margin-left: 10px;" *ngIf='movie'>
+
+            <button title="add to watch list" class="watchlist"><i *ngIf="!show" class="material-icons" id={{movie.id}}
+                    (click)="watchList($event)">playlist_add</i><i *ngIf="show" class="material-icons"
+                    id={{movie.id}} (click)="watchList($event)">playlist_add_check</i></button>
+
+            <button 
+                title="add to favorites" 
+                class="watchlist">
+                <i 
+                *ngIf="!fav" 
+                class="material-icons" 
+                id={{movie.id}}
+                (click)="favorite($event)">
+                favorite_border
+                </i>
+                <i *ngIf="fav" class="material-icons" id={{movie.id}}
+                (click)="favorite($event)">favorite</i></button>
+
+            <button title="mark as watched" class="watchlist"><i *ngIf="!watched_bol" class="material-icons" 
+                    (click)="watched(movie.id)">bookmark_border</i><i *ngIf="watched_bol" class="material-icons"
+                    (click)="watched(movie.id)">bookmark</i></button>
+
+            <a href={{video}} *ngIf="video" target="_blank">
+                <button title="play trailer" class="watchlist" ><i class="material-icons">play_arrow</i></button>
+            </a>
+            <a *ngIf="movie.homepage" title="visit webpage" href="{{movie.homepage}}" class="trailer" target="_blank"><i class="material-icons">language</i></a>
+        </div>
+
+        <span class="over">Overview</span>
+        <span class="view" *ngIf='movie'>{{movie.overview}}</span>
+        <div class="tag" *ngIf='movie'>
+            <button *ngFor='let tag of movie.genres' class="tags">{{tag.name}}</button>
+        </div>
+    </div>
+    <div class="play_list dropdown">
+        <button title="add to playlist">playlist</button>
+        <div class="dropdown-content">
+            <span *ngFor="let list of play_list" (click)="addToPlayList(list.name,movie.id)">{{list.name}}<hr></span>
+        </div>
+    </div>
+</div>

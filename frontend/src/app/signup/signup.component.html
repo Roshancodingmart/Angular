@@ -1,7 +1,6 @@
 <app-header></app-header>
 
 <div class="happy">
-        <!-- <div *ngIf='sign'>{{alert(sign.data)}}</div> -->
         <span class="title">Sign Up</span>
         <input type="text" [value]="user.name" (input)="handleChange($event)" placeholder="Enter username" name="name" ng-required="true"/>
         <input type="text" [value]="user.mail" (input)="handleChange($event)" placeholder="Enter email" name="mail" ng-required="true"/>

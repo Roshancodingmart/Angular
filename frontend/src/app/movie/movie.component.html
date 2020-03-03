@@ -1,5 +1,5 @@
 <app-header></app-header>
-
+<!-- <router-outlet></router-outlet> -->
 <div class="holder"> 
     <div class="search">
         <input placeholder="search for movies" (change)="handleSearch($event)"> 
@@ -8,7 +8,8 @@
     <div *ngIf="movies">
         <div class="whole"> 
             <div class="top-rated">
-              <div class="select1">
+              <div class="select" (click)="Info(movies.id)">
+                <img src={{img}} alt="poster"/>
                 <div class="title">
                   <span class="heading">{{movies && movies.title}}</span>
                 </div>
@@ -19,8 +20,8 @@
                       <span class="rating-n">{{movies && movies.vote_average}}/10</span>
                       <span class="rating time">&nbsp; {{(movies.runtime/60).toFixed(2)}}hrs</span>
                   </div>
-                  <span class="overview">Overview</span><br>
-                  <span>&emsp;{{movies && movies.overview}}</span><br>
+                  <!-- <span class="overview">Overview</span><br>
+                  <span>&emsp;{{movies && movies.overview}}</span><br> -->
                   <button *ngFor='let genre of movies.genres' class="tags">
                     {{genre.name}}
                   </button>
@@ -32,9 +33,10 @@
     <span class="genre" *ngIf="movies">Similar Movies</span>
     <div *ngIf="movies">
         
-        <div class="whole" *ngFor='let value of similar'>
+        <div class="whole" *ngFor='let value of similar' (click)="onClick(value.id)">
               <div class="top-rated">
                 <div class="select1">
+                  <img [src]="'https://image.tmdb.org/t/p/w300/'+value.backdrop_path" alt="picture">
                   <div class="title">
                     <span class="heading">{{value.title}}</span>
                   </div>
@@ -51,12 +53,14 @@
               </div>
         </div>
     </div>
-    <span class="genre">Top rated Movies</span>
-    <div>
-        <div class="whole" *ngFor='let value of top'> 
+    <span class="genre" *ngIf="top">Top rated Movies</span>
+
+    <div *ngIf="top">
+        <div class="whole" *ngFor='let value of top' (click)="onClick(value.id)"> 
                 <div class="top-rated">
-                  
+                  <div class="loader" *ngIf='!value'></div>
                   <div class="select1">
+                    <img [src]="'https://image.tmdb.org/t/p/w300/'+value.backdrop_path" alt="picture">
                     <div class="title">
                       <span class="heading">{{value.title}}</span>
                     </div>
@@ -73,5 +77,32 @@
                   </div>
                 </div>
         </div>
+<!-- <div class="pagination">
+  <div>
+    <button><<</button>
+    <button><</button>
+  </div>
+          <div class="page">
+           <div class="no">
+              <button *ngFor="let page of pages" (click)="pageNo(page)">{{page}}</button>
+           </div>
+          </div>
+         <div>
+            <button>></button>
+            <button>>></button>
+         </div>
+</div> -->
+      </div>
+      <div>
+        
       </div>
 </div>
+
+
+
+
+
+
+
+
+<!-- https://image.tmdb.org/t/p/w500 -->

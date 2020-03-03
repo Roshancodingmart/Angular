@@ -1,0 +1,10 @@
+.menu{
+    margin: 20px;
+    background: none;
+    border: none;
+    color: white;
+    outline-width: 0;
+}
+.menu-link{
+    text-decoration: none;
+}

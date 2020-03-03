@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="heading">
+    <span >Favorites</span>
+</div>
+<div *ngFor="let movies of array" class="watch-main">
+    <div id={{movies.id}} (click)="onClick(movies.id)" class="holder"  [ngClass]="{'holder1': id.includes(movies.id)}">
+        
+        <div class="pic" id={{movies.id}}>
+            <img [src]="'https://image.tmdb.org/t/p/w300/'+movies.backdrop_path" alt="picture">
+        </div>
+<div class="title">
+    <span>{{movies.title}}</span>
+</div>
+<div class="rate-holder">
+    <span class="rating">Rating:&nbsp;{{movies.vote_average}}</span>
+    <span class="rating">{{(movies.runtime/60).toFixed(2)}}hrs</span>
+</div>
+<div>
+    <button *ngFor="let tags of movies.genres" class="tags">{{tags.name}}</button>
+</div>
+    </div>
+</div>

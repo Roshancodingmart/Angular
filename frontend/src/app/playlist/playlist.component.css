@@ -1,0 +1,127 @@
+.create{
+    height: 370px;
+    width: 300px;
+    background: skyblue;
+    margin: 30px 0px 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+.create1{
+    height: 370px;
+    width: 300px;
+    background: skyblue;
+    margin: 30px 0px 10px 30px;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+.create img{
+    height: 370px;
+    width: 300px;
+object-fit: fill;
+}
+.title{
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+.plus{
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background: rgb(241, 178, 119);
+    margin-top: 55%;
+    font-size: 24px;
+}
+.plus:hover{
+    background: rgb(70, 248, 70);
+}
+.photo{
+    border: 1px solid black;
+    height: 260px;
+    width: 45%;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.photo img{
+    height: 260px;
+    width: 100%;
+}
+.get{
+    margin-top: 50%;
+}
+.form{
+display: flex;
+/* flex-direction: column; */
+justify-content: space-evenly;
+text-align: center;
+align-items: center;
+padding: 30px;
+}
+.input{
+    text-align: center;
+    align-items: center;
+    height: 250px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.name{
+    border-radius:5px;
+    width: 200px;
+    height: 20px;
+}
+.desc{
+    border-radius:5px;
+    width: 200px;
+}
+.submit{
+    width: 50px;
+    height: 30px;
+    border-radius:5px ;
+    /* border: none; */
+}
+
+.modal_bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.modal {
+    width: 40vw;
+    height: 50vh;
+    background-color: rgb(34, 34, 34);
+    border-radius: 5px;
+}
+.playlist_holder{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+.playlist{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.pname{
+    font-size: 20px;
+    font-family: sans-serif;
+}

@@ -1,4 +1,6 @@
 <div class="header">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <app-menu></app-menu>
     <div class="welcome"><span *ngIf='signed'>Welcome {{user}}</span></div>
     <div class="log">
         <a routerLink="/signup"> <button class="submit-btn" *ngIf='!signed'>Sign up</button></a>

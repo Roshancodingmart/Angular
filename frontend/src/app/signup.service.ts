@@ -9,6 +9,6 @@ export class SignupService {
 
   constructor(private http: HttpClient) { }
   Signup=(user)=>{
-    return this.http.post("http://localhost:3005/createUser", user)
+    return this.http.post("http://localhost:3005/registerUser", user)
   }
 }

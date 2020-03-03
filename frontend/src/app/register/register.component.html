@@ -1,0 +1,23 @@
+<div class="heading">
+    <span>Registered User's</span>
+</div>
+    <div class="admin">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th class="name">Accept</th>
+                    <th class="name">Reject</th>
+                </tr>
+            </thead>
+            <tbody *ngFor='let reg of regi'>
+               <tr>
+                    <td style="height: 30px;">{{reg.name}}</td>
+                    <td>{{reg.email}}</td>
+                    <td><button  class="tick"><img id={{reg.email}} (click)='acceptRequest($event)' src="/assets/Green_tick.png" alt="Yes"></button></td>
+                    <td><button  class="cross"><img id={{reg.email}} (click)='deleteRequest($event)' src="/assets/Red_wrong.png" alt="No"></button></td>
+               </tr>
+            </tbody>
+        </table>
+    </div>

@@ -5,33 +5,50 @@ const date = require('date-and-time');
 const now = new Date();
 const time = date.format(now, 'DD/MM/YY h:mm A',true)
 const createUser = (req, res) => {
-  const { name, mail, pass } = req.body;
-  const no="null";
-  bcrypt.hash(pass, 10, function(err, hash) {
+  const { mail } = req.body;
+  conn.client.query(`SELECT * FROM public.register WHERE email=$1`,[mail],(erro,response)=>{
+    console.log('inside sign up')
+    if(erro){
+      console.log(erro)
+    }
+    console.log(response.rows[0].name,response.rows[0].email,response.rows[0].password)
+  const no="";
+  bcrypt.hash(response.rows[0].password, 10, function(err, hash) {
     conn.client.query(
       `SELECT * FROM public.new WHERE email=$1`,
       [mail],
       (err, resp) => {
-        console.log(resp.rowCount);
-        if (resp.rowCount == 0) {
+        if (resp.rowCount == 0 || (resp.rowCount>0 && resp.rows[0].deleted !="")) {
+          if(resp.rowCount>0){
+            console.log(mail)
+
+            conn.client.query(`DELETE FROM public.new WHERE email=$1`,[mail],(e,r)=>{
+              console.log(e)
+              if(r){
+                console.log('deleted '+mail)
+              }
+            })
+          }
           conn.client.query(
             `INSERT INTO public.new(email,name,password ,added,updated,deleted) VALUES ($1 , $2 , $3 , $4 , $5 , $6)`,
-            [mail, name, hash, time, time, no],
+            [mail, response.rows[0].name, hash, time, time, no],
             (error, respo) => {
               if (error) {
                 console.log(error);
               }
-              console.log(respo)
+              // console.log(respo)
+              conn.client.query(`DELETE FROM public.register WHERE email=$1`,[mail])
               res.send({"data":"User added to database"});
             }
           );
         } else {
 
-          res.send("user already exists!");
+          res.send({data:"user already exists!"});
         }
       }
     );
   });
+})
 };
 module.exports = {
   createUser

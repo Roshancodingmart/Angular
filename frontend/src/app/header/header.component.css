@@ -20,6 +20,18 @@
     font-weight: bold;
     font-size: large;
 }
+.menu{
+    background: transparent;
+    border: none;
+    color: white;
+    outline-width: 0;
+}
+.menu:hover{
+    color: yellowgreen;
+}
+.sandwich{
+    margin: 20px;
+}
 .welcome{
     padding: 20px;
 }

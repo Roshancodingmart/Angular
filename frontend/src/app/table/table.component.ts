@@ -1,51 +1,65 @@
-import { Component, OnInit } from '@angular/core';
-import { TableService } from '../table.service'
-import { from } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { TableService } from "../table.service";
+import { from } from "rxjs";
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  selector: "app-table",
+  templateUrl: "./table.component.html",
+  styleUrls: ["./table.component.css"]
 })
 export class TableComponent implements OnInit {
-user_details;
-details;
-rows;
-array=[];
-  constructor(private table:TableService) { }
+  user_details;
+  details;
+  rows;
+  array = [];
+  number: number = 5;
+  page: number = 1;
+  key:boolean=true;
+  regi;
+  delete;
+  add;
+  constructor(private table: TableService) {}
 
   ngOnInit(): void {
-    this.handleTable(0);
-  }
-handleTable=(num)=>{
-  let number=num;
-  this.table.Table(number).subscribe(data=>{
-    
-    this.details= data
-    this.user_details=this.details[0].user
-    this.rows=this.details[0].count
-    this.Pagination(this.rows);
-  })
-}
-Pagination=(total)=>{
-  this.array=[]
-  if(total%5==0){
-    total=total/5
-  }
-  else{
-    total=total/5+1
-  }
-  for(let i=1;i<total;i++){
-    this.array.push(i)
-  }
-}
-toBefore=()=>{
+    // document.addEventListener("scroll", () => {
+    //   let total = document.documentElement.scrollHeight - window.innerHeight;
+    //   let scrolV = window.scrollY;
+    //   if (scrolV === total) {
+    //     this.handleTable();
+    //     this.registerTable();
+    //     this.key=false;
+    //   }
+    // });
+    // if(this.key)
+    // {this.handleTable();
+    // this.registerTable();}
 
-}
-toNext=()=>{
-
-}
-toStart=()=>{
-
-}
-toEnd=()=>{}
+  }
+  // handleTable = () => {
+  //   let total = 0;
+  //   total = this.number * this.page;
+  //   console.log(total,this.number,this.page)
+  //   this.table.Table(total).subscribe(data => {
+  //     this.details = data;
+  //     this.user_details = this.details[0].user;
+  //   });
+  //   this.page++;
+  // };
+// registerTable=()=>{
+//   this.table.Register().subscribe(data=>{
+//     this.regi=data;
+//   })
+// }
+// acceptRequest=(event)=>{
+// this.table.Accept(event.target.id).subscribe(data=>{
+//   this.add=data;
+// this.registerTable();
+// this.handleTable();
+// })
+// }
+// deleteRequest=(event)=>{
+//  this.table.Reject(event.target.id).subscribe(data=>{
+//   this.delete=data;
+//   this.registerTable();
+// })
+// }
 }

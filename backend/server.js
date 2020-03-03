@@ -5,7 +5,6 @@ var cors = require('cors')
 var app = express()
 app.use(cors())
 const port = 3005;
-// middleware.checkToken
 const createUserRoute = require("./Route/User/createUserRoute");
 const signinUserRoute = require("./Route/User/signinUserRoute");
 const userTableRoute = require("./Route/User/userTableRoute");
@@ -22,6 +21,21 @@ const checkLinkRoute = require("./Route/checkLinkRoute");
 const printExcelRoute = require("./Route/printExcelRoute")
 const excelRoute = require("./Route/excelRoute");
 const pageRoute = require("./Route/pageRoute");
+const registerUserRoute = require("./Route/User/registerUserRoute");
+const getRegisterRoute = require("./Route/getRegisterRoute");
+const acceptUserRoute = require("./Route/User/acceptUserRoute");
+const rejectUserRoute = require("./Route/User/rejectUserRoute")
+const watchListRoute = require("./Route/watchListRoute");
+const checkListRoute = require("./Route/checkListRoute");
+const favoriteRoute = require("./Route/favoriteRoute");
+const getWatchListRoute = require("./Route/getWatchListRoute");
+const getFavoritesRoute = require("./Route/getFavoritesRoute");
+const watchedRoute = require("./Route/watchedRoute");
+const getWatchedRoute =require("./Route/getWatchedRoute");
+const createPlayListRoute =require("./Route/createPlayListRoute");
+const getPlayListRoute = require("./Route/getPlayListRoute");
+const getListRoute = require("./Route/getListRoute");
+const addToPlayListRoute =require("./Route/addToPlayListRoute");
 
 
 app.use(bodyParser.json());
@@ -69,3 +83,18 @@ app.use("/checkLink",checkLinkRoute);
 app.use("/printExcel",printExcelRoute);
 app.use("/excel",excelRoute);
 app.use("/page",pageRoute);
+app.use("/registerUser",registerUserRoute);
+app.use("/getRegister",getRegisterRoute);
+app.use("/acceptUser",acceptUserRoute);
+app.use("/rejectUser",rejectUserRoute);
+app.use("/watchList",watchListRoute);
+app.use("/checkList",checkListRoute);
+app.use("/favorite",favoriteRoute);
+app.use("/getWatchList",getWatchListRoute);
+app.use("/getFavorites",getFavoritesRoute);
+app.use("/watched",watchedRoute);
+app.use("/getWatched",getWatchedRoute);
+app.use("/createPlayList",createPlayListRoute);
+app.use("/getPlayList",getPlayListRoute);
+app.use("/getList",getListRoute);
+app.use("/addToPlayList",addToPlayListRoute);

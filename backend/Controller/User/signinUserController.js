@@ -8,11 +8,12 @@ const privateKey = fs.readFileSync(`${appDir}/key/jwtRS256.key`, "utf8");
 // console.log(privateKey)
 const signinUser = (req, res) => {
   const { mail, pass } = req.body;
-
+console.log(mail,pass)
   conn.client.query(
     `SELECT password FROM public.new WHERE email=$1`,
     [mail],
     (err, resp) => {
+      console.log(resp.rows)
       bcrypt.compare(pass, resp.rows[0].password, function(error, respo) {
         if(error){
           console.log(error)

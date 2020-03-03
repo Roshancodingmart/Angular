@@ -24,15 +24,14 @@ export class MovieService {
       url = proxyUrl + target;
       let res = await fetch(url);
       let data2 = await res.json();
-      console.log(data2);
         return data2;
     }
   }
   };
-  TopRated = async() => {
+  TopRated = async(page) => {
     let proxyUrl = "https://cors-anywhere.herokuapp.com/";
     let targetUrl =
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=1b0dcc7cd2473b7e4881375867e68063&language=en-US&page=1";
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=1b0dcc7cd2473b7e4881375867e68063&language=en-US&page="+page;
     let url = proxyUrl + targetUrl;
     let res = await fetch(url);
     let data2 = await res.json();

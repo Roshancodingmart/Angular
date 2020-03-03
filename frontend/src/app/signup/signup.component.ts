@@ -21,12 +21,13 @@ export class SignupComponent implements OnInit {
 
   handleChange = event => {
     this.user[event.target.name] = event.target.value;
+    // console.log(this.user)
   };
 
   handleSignup = async () => {
     await this.signup.Signup(this.user).subscribe(data => {
       this.sign = data;
-      if(this.sign.data=="User added to database")
+      if(this.sign.msg=="User added")
       {
         alert("User added to database");
       }

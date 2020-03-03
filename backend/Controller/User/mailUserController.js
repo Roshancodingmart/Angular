@@ -2,6 +2,7 @@ const conn = require("../db");
 var nodemailer = require("nodemailer");
 
 const mailUser =(req,res)=>{
+  var { subject, text } = req.body;
     var transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -13,8 +14,8 @@ const mailUser =(req,res)=>{
       var mailOptions = {
         from: "roshandd7@gmail.com",
         to: "roshandd77@gmail.com",
-        subject: "Password Changed",
-        text: "Your password has been change successfully. For changing the password again chick on the forget button below signin. If its not you please immediately report to us on roshandd7@gmail.com. For further details see the `About us` in our official web site. "
+        subject: subject,
+        text: text
       };
   
       transporter.sendMail(mailOptions, function(error, info) {
@@ -24,7 +25,7 @@ const mailUser =(req,res)=>{
           console.log("Email sent: " + info.response);
         }
       })
-      res.send("Hi")
+      res.send({msg:"Email sent"})
 }
 module.exports = {
     mailUser

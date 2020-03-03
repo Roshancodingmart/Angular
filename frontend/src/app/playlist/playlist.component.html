@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+
+<div class="title"><span>PlayList</span></div>
+<div class="modal_bg" *ngIf="show">
+    <div class="modal">
+        <form class="form">
+            <div class="photo" appDrag (files)="filesDropped($event)" *ngIf="!files.length" (change)="onUploadChange($event)">
+                <div class="get" *ngIf="!photo">
+                    <label>
+                        <span *ngIf="!photo">choose or drag a photo</span>
+                        <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf"  *ngIf="!photo" style="display: none;"/>
+                    </label>
+                </div>
+                <img src={{photo}} *ngIf="photo">
+            </div>
+            <div *ngFor="let file of files">
+                <img *ngIf="file" [src]="file.url" width="200px" height="260px">
+              </div>
+            <div class="input">
+
+                <input type="text" placeholder="name" name="title" [value]=name.title class="name"
+                    (input)="onChange($event)">
+                <textarea placeholder="description" name="description" [value]=name.description cols="20" rows="5"
+                    (input)="onChange($event)" class="desc"></textarea>
+                <button class="submit" (click)=create()>create</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="playlist_holder">
+    <div class="create1">
+        <span *ngIf="!show"><button title="create new playlist" (click)="New(true)" class="plus">+</button></span>
+    </div>
+    <div *ngFor="let lists of list" class="playlist" (click)="navigate(lists.name)">
+        <div class="create" >
+
+            <img src={{lists.photo}} alt="{{lists.name}}">
+        </div>
+        <div>
+            <span class="pname">{{lists.name}}</span>
+        </div>
+    </div>
+</div>

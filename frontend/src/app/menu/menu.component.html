@@ -1,0 +1,11 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<button mat-button [matMenuTriggerFor]="menu" class="menu"><i class="material-icons">
+    menu
+    </i></button>
+<mat-menu #menu="matMenu" >
+  <a routerLink="/movie" class="menu-link"><button mat-menu-item>Top Rated</button></a>
+  <a routerLink="/watchlist" class="menu-link"><button mat-menu-item>WatchList</button></a>
+  <a routerLink="/favorites" class="menu-link"><button mat-menu-item>Favorites</button></a>
+  <a routerLink="/watched" class="menu-link"><button mat-menu-item>Watched</button></a>
+  <a routerLink="/playlist" class="menu-link"><button mat-menu-item>Playlist</button></a>
+</mat-menu>

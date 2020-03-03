@@ -1,0 +1,30 @@
+<!-- <app-table></app-table> -->
+
+<div class="heading">
+    <span>User's List</span>
+</div>
+<div class="admin">
+
+    <table>
+        <thead>
+            <tr>
+                <th class="name">Name</th>
+                <th class="mail">Email</th>
+                <th class="created">Created</th>
+                <th class="updated">Updated</th>
+                <th class="deleted">Deleted</th>
+                <th class="deleter">Delete</th>
+            </tr>
+        </thead>
+        <tbody *ngIf='user_details'>
+            <tr *ngFor='let user of user_details'>
+                <td style="height: 30px;">{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.added}}</td>
+                <td>{{user.updated}}</td>
+                <td>{{user.deleted}}</td>
+                <td><button class="delete"><img src="/assets/delete-24px.svg" alt="Delete" id={{user.email}} (click)="handleDelete($event)"></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

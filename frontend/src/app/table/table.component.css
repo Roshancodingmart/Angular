@@ -6,6 +6,25 @@
     display: flex;
     justify-content: center;
 }
+.table-caller{
+    margin-top: 50px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+.table-caller button{
+    margin: 10px;
+    height: 40px;
+    width: 220px;
+    border: none;
+    background: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.table-caller button:focus{
+    outline-width: 0;
+}
 .admin {
   margin-top: 50px;
   width: 100%;
@@ -17,7 +36,7 @@
 }
 .admin table{
     /* background-color: blue; */
-    width: 1000px;
+    width: 1100px;
     border: none;
 }
 .admin thead{
@@ -41,9 +60,9 @@
 .deleted{
     width: 200px;
 }
-/* .delete{
-    width: 200px;
-} */
+.deleter{
+    width: 100px;
+}
 .page{
     text-align: center;
     margin-top: 50px;
@@ -73,3 +92,49 @@
       height: 15px;
       width: 13px;
     }
+    .top{
+        display: flex;
+        flex-direction: column;
+    }
+    .tick{
+        background: none;
+        border: none;
+    }
+    .tick img{
+        width: 12px;
+        height: 12px;
+    }
+    .tick :hover{
+        width: 20px;
+        height: 20px;
+    }
+    .cross{
+        background: none;
+        border: none;
+    }
+    .cross img{
+        width: 15px;
+        height: 15px;
+    }
+    .cross :hover{
+        width: 25px;
+        height: 25px;
+    }
+    .delete{
+        background: none;
+        border: none;
+        height: 30px;
+        width: 30px;
+    }
+    .delete img{
+        height: 20px;
+        height: 20px;
+    }
+    .delete img:hover{
+        height: 22px;
+        width: 25px;
+    }
+.active{
+    border-bottom: 4px solid blue;
+    background-color: rgb(201, 233, 233);
+}

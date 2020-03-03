@@ -1,0 +1,117 @@
+.heading{
+    margin-top: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+
+    display: flex;
+    justify-content: center;
+}
+.admin {
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: black;
+  text-align: center;
+}
+.admin table{
+    /* background-color: blue; */
+    width: 1100px;
+    border: none;
+}
+.admin thead{
+    background-color: blue;
+    color: white;
+    border: none;
+}
+.name{
+    height: 30px;
+    width: 150px;
+}
+.mail{
+    width: 250px;
+}
+.created{
+    width: 200px;
+}
+.updated{
+    width: 200px;
+}
+.deleted{
+    width: 200px;
+}
+.deleter{
+    width: 100px;
+}
+.page{
+    text-align: center;
+    margin-top: 50px;
+    }
+    .pg_no{
+      height: 30px;
+      width: 30px;
+      border:1px solid darkblue;
+      border-radius:0px ;
+      display: inline;
+      margin-right: 1px; 
+      background-color: blue;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      font-weight: bold;
+    }
+    .pg_input{
+    text-align: center;
+    margin-top: 50px;
+    }
+    .pg_input input{
+      width: 20px;
+      text-align: center;
+    }
+    .img{
+      height: 15px;
+      width: 13px;
+    }
+    .top{
+        display: flex;
+        flex-direction: column;
+    }
+    .tick{
+        background: none;
+        border: none;
+    }
+    .tick img{
+        width: 12px;
+        height: 12px;
+    }
+    .tick :hover{
+        width: 20px;
+        height: 20px;
+    }
+    .cross{
+        background: none;
+        border: none;
+    }
+    .cross img{
+        width: 15px;
+        height: 15px;
+    }
+    .cross :hover{
+        width: 25px;
+        height: 25px;
+    }
+    .delete{
+        background: none;
+        border: none;
+        height: 30px;
+        width: 30px;
+    }
+    .delete img{
+        height: 20px;
+        height: 20px;
+    }
+    .delete img:hover{
+        height: 22px;
+        width: 25px;
+    }
