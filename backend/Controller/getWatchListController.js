@@ -10,7 +10,7 @@ const getWatchList = (req, res) => {
       id
    LIMIT $1 OFFSET 0`,[total],(error,response)=>{
         if(response.rowCount>0){
-            console.log(response.rows)
+            // console.log(response.rows)
             res.send(response.rows)
         }
     })

@@ -36,6 +36,9 @@ const createPlayListRoute =require("./Route/createPlayListRoute");
 const getPlayListRoute = require("./Route/getPlayListRoute");
 const getListRoute = require("./Route/getListRoute");
 const addToPlayListRoute =require("./Route/addToPlayListRoute");
+const editUserRoute = require("./Route/editUserRoute");
+const insertUserRoute = require("./Route/User/insertUserRoute");
+ 
 
 
 app.use(bodyParser.json());
@@ -98,3 +101,5 @@ app.use("/createPlayList",createPlayListRoute);
 app.use("/getPlayList",getPlayListRoute);
 app.use("/getList",getListRoute);
 app.use("/addToPlayList",addToPlayListRoute);
+app.use("/editUser",editUserRoute);
+app.use("/insertUser",insertUserRoute);

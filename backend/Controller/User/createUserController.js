@@ -12,7 +12,7 @@ const createUser = (req, res) => {
       console.log(erro)
     }
     console.log(response.rows[0].name,response.rows[0].email,response.rows[0].password)
-  const no="";
+  const no=undefined;
   bcrypt.hash(response.rows[0].password, 10, function(err, hash) {
     conn.client.query(
       `SELECT * FROM public.new WHERE email=$1`,
