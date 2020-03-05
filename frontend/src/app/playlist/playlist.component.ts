@@ -42,13 +42,8 @@ export class PlaylistComponent implements OnInit {
   };
   create = async() => {
     let photo = this.base64textString[0].replace('{',"")
-    console.log(photo,"hi")
-    // alert(this.photo)
-    // alert(this.name.title)
-    // alert(this.name.description)
     await this.play.Create(this.photo,this.name.title,this.name.description).subscribe(data => {
       this.result = data;
-      console.log(this.result.msg);
       if(this.result.msg=="playlist created"){
         this.back(false);
       }
@@ -58,7 +53,6 @@ export class PlaylistComponent implements OnInit {
 
   filesDropped(file: FileHandle[]): void {
     this.files = file;
-    console.log(this.files[0].file)
     this.img=this.files[0].file;
     if (this.img) {
       const reader = new FileReader();

@@ -2,6 +2,7 @@
 <div class="loader" *ngIf="!movie"></div>
 <div class="info" *ngIf="movie">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <div class="pic">
         <img src={{image}} alt="picture">
     </div>
@@ -46,6 +47,10 @@
         <span class="view" *ngIf='movie'>{{movie.overview}}</span>
         <div class="tag" *ngIf='movie'>
             <button *ngFor='let tag of movie.genres' class="tags">{{tag.name}}</button>
+        </div>
+        <div class="money">
+            <button class="rent" (click)="pay(50)">Rent for Rs:50</button>
+            <button class="buy" (click)="pay(100)">Buy for Rs:100</button>
         </div>
     </div>
     <div class="play_list dropdown">

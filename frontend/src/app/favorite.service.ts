@@ -6,8 +6,9 @@ import { HttpClient } from "@angular/common/http";
 export class FavoriteService {
 
   constructor(private http:HttpClient) { }
-Favorites=()=>{
-  return this.http.get("http://localhost:3005/getFavorites");
+Favorites=(total)=>{
+  console.log(total)
+  return this.http.post("http://localhost:3005/getFavorites",{total:total});
 }
 Check=()=>{
   return this.http.get("http://localhost:3005/getWatched");

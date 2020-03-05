@@ -7,7 +7,7 @@ import { TableService } from "../table.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  number: number = 5;
+  number: number = 10;
   page: number = 1;
   key:boolean=true;
   regi;

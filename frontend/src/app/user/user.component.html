@@ -3,9 +3,47 @@
 <div class="heading">
     <span>User's List</span>
 </div>
-<div class="admin">
+<div class="excel">
+    <div class="modal" *ngIf="!input && visible" (click)="close()">
 
-    <table>
+        <div class="modalContent" appDrag (files)="filesDropped($event)" >
+            <div class="file_input">
+                <label>
+                    <div style="cursor: pointer;color: black;">select or drag file</div>
+                    <input type="file" id="fileinput" (input)="Import()" style="display: none;" />
+                </label>
+
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <button (click)="import()" class="import">Import</button>
+        <button (click)="Excel()" class="excel_btn">Excel</button>
+        <button (click)="Pdf()" class="pdf_btn">Pdf</button>
+    </div>
+</div>
+<div *ngIf="view" class="temp_div">
+    <table class="temp_table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let form of output">
+                <td>{{form[0]}}</td>
+                <td>{{form[1]}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div *ngIf="view" class="temp_btn"><button (click)="Add()">Add</button></div>
+<div class="admin">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <table id="table">
         <thead>
             <tr>
                 <th class="name">Name</th>
@@ -13,7 +51,8 @@
                 <th class="created">Created</th>
                 <th class="updated">Updated</th>
                 <th class="deleted">Deleted</th>
-                <th class="deleter">Delete</th>
+                <th class="deleter"></th>
+                <th class="deleter"></th>
             </tr>
         </thead>
         <tbody *ngIf='user_details'>
@@ -23,8 +62,19 @@
                 <td>{{user.added}}</td>
                 <td>{{user.updated}}</td>
                 <td>{{user.deleted}}</td>
-                <td><button class="delete"><img src="/assets/delete-24px.svg" alt="Delete" id={{user.email}} (click)="handleDelete($event)"></button></td>
+                <td><button class="delete" *ngIf="user.deleted==null"><img src="/assets/delete-24px.svg" alt="Delete"
+                            id={{user.email}} (click)="handleDelete($event)"></button></td>
+                <td><button class="delete" (click)="handleEdit(user.email,user.name)" *ngIf="user.deleted==null"><img
+                            src="/assets/edit.jpg" alt="edit" height="20px" width="20px"></button></td>
             </tr>
         </tbody>
     </table>
+</div>
+<div class="modal" *ngIf="show">
+    <form (submit)="EditUser($event)">
+        <input type="text" value={{email}} disabled>
+        <input type="text" value={{name}} (input)="Change($event)">
+        <button>Edit</button>
+    </form>
+
 </div>

@@ -6,11 +6,9 @@ import { async } from 'rxjs/internal/scheduler/async';
   providedIn: 'root'
 })
 export class WatchlistService {
-  total=0;
   constructor(private http:HttpClient) { }
-  Watchlist=()=>{
-    this.total=this.total+3;
-    return this.http.post("http://localhost:3005/getWatchList",{total:6});
+  Watchlist=(total)=>{
+    return this.http.post("http://localhost:3005/getWatchList",{total:total});
   }
   Check=()=>{
     return this.http.get("http://localhost:3005/getWatched");
